@@ -6,34 +6,57 @@
     <meta name="robots" content="index,follow" />
     <title>Fret Wizard — Privacy Policy</title>
     <style>
-      body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; color: #0f172a; background: #f8fafc; }
-      main { max-width: 820px; margin: 0 auto; padding: 32px 20px 64px; }
-      h1 { font-size: 1.875rem; margin: 0 0 0.25rem; }
-      .muted { color: #475569; }
-      section { background: white; border-radius: 12px; padding: 24px; box-shadow: 0 1px 2px rgba(0,0,0,.06); }
-      ul { padding-left: 1.25rem; }
-      a { color: #2563eb; text-decoration: none; }
-      a:hover { text-decoration: underline; }
+      :root{
+        --bg1:#07091a; --bg2:#0a1030; --bg3:#111946; --card:#0b122b;
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(1200px 800px at 20% 10%,#15205100 0,#15205155 60%,#15205100 100%), linear-gradient(180deg,var(--bg1),var(--bg2) 40%,var(--bg3));overflow:hidden}
+      /* Starfield */
+      .sky::before,.sky::after{content:"";position:absolute;inset:-10%;background-repeat:repeat;background-size:200px 200px;opacity:.55}
+      .sky::before{background-image:radial-gradient(2px 2px at 20px 30px,#fff8 40%,#0000 42%),radial-gradient(1.5px 1.5px at 120px 160px,#fff6 40%,#0000 42%),radial-gradient(1.25px 1.25px at 180px 60px,#fff5 40%,#0000 42%);animation:twinkle 7s linear infinite}
+      .sky::after {background-image:radial-gradient(2px 2px at 80px 100px,#fff7 40%,#0000 42%),radial-gradient(1px 1px at 160px 40px,#fff5 40%,#0000 42%),radial-gradient(1.5px 1.5px at 30px 170px,#fff6 40%,#0000 42%);animation:twinkle 9s linear infinite reverse}
+      @keyframes twinkle{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:.8;transform:translateY(-2px)}}
+      /* Aurora haze */
+      .glow{position:absolute;inset:0;filter:blur(40px);opacity:.35;pointer-events:none;background:radial-gradient(600px 300px at 70% 20%, color(display-p3 0.5 0.8 1 /.6), #0000 70%), radial-gradient(500px 280px at 20% 80%, color(display-p3 0.7 0.5 1 /.5), #0000 70%)}
+      main{position:relative;display:grid;place-items:center;height:100%;}
+      .card{position:relative;display:grid;gap:10px;place-items:start;width:min(92%,980px);padding:24px 20px;background:linear-gradient(180deg, #0b122bcc, #0b122b99);border:1px solid #1f2a53;border-radius:16px;box-shadow:0 10px 35px #000a, inset 0 1px #ffffff0d}
+      h1{margin:0;font-weight:800;letter-spacing:.5px;font-size:clamp(1.6rem,3vw,2.2rem);background:linear-gradient(90deg,#e5e7eb,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent}
+      .muted{color:#a5b4fc}
+      section p, section li{color:#cbd5e1}
+      ul{padding-left:1.25rem;margin:0.5rem 0 0}
+      a{color:#93c5fd;text-decoration:none}
+      a:hover{text-decoration:underline}
+      .nav{display:flex;gap:14px;align-items:center;position:fixed;inset:auto 14px 12px;}
+      .nav a{color:#a5b4fc}
     </style>
   </head>
   <body>
+    <div class="sky" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
     <main>
-      <header style="margin-bottom:16px;">
-        <h1>Privacy Policy</h1>
-        <div class="muted">Effective: 2025-11-06</div>
-      </header>
-      <section>
-        <p>Fret Wizard Mobile does not collect, store, or share personal data.</p>
-        <ul>
-          <li>No ads, tracking, or analytics SDKs are used.</li>
-          <li>No account is required. We do not operate a backend service.</li>
-          <li>Audio is generated locally on-device using Tone.js; usage never leaves your device.</li>
-          <li>App settings and progress (if any) are stored locally on your device only.</li>
-          <li>In-app purchases (if offered) are processed by Google Play. We do not receive your payment information. Purchase status is stored locally and may be validated by the store.</li>
-          <li>The app does not load third‑party code from the network at runtime. All code, styles, and assets are bundled with the app. No personal data is transmitted by the app.</li>
-        </ul>
-        <p>If you have questions, contact: <a href="mailto:support@fretwizard.app">support@fretwizard.app</a></p>
-      </section>
+      <div class="card" role="region" aria-label="Privacy policy">
+        <header style="margin-bottom:6px;">
+          <h1>Privacy Policy</h1>
+          <div class="muted">Effective: 2025-11-06</div>
+        </header>
+        <section>
+          <p>Fret Wizard Mobile does not collect, store, or share personal data.</p>
+          <ul>
+            <li>No ads, tracking, or analytics SDKs are used.</li>
+            <li>No account is required. We do not operate a backend service.</li>
+            <li>Audio is generated locally on-device using Tone.js; usage never leaves your device.</li>
+            <li>App settings and progress (if any) are stored locally on your device only.</li>
+            <li>In-app purchases (if offered) are processed by Google Play. We do not receive your payment information. Purchase status is stored locally and may be validated by the store.</li>
+            <li>The app does not load third‑party code from the network at runtime. All code, styles, and assets are bundled with the app. No personal data is transmitted by the app.</li>
+          </ul>
+          <p>If you have questions, contact: <a href="mailto:support@fretwizard.app">support@fretwizard.app</a></p>
+        </section>
+      </div>
     </main>
+    <nav class="nav" aria-label="Footer">
+      <a href="index.html">← Back to landing</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
   </body>
 </html>
