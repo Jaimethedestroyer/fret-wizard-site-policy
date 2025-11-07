@@ -11,16 +11,18 @@
         --bg1:#07091a; --bg2:#0a1030; --bg3:#111946; --glow:#7dd3fc; --glow2:#a78bfa; --card:#0b122b;
       }
       *{box-sizing:border-box}
-      html,body{height:100%}
-      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(1200px 800px at 20% 10%,#15205100 0,#15205155 60%,#15205100 100%), linear-gradient(180deg,var(--bg1),var(--bg2) 40%,var(--bg3));overflow:hidden}
+  html,body{height:100%;scroll-behavior:smooth}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(1200px 800px at 20% 10%,#15205100 0,#15205155 60%,#15205100 100%), linear-gradient(180deg,var(--bg1),var(--bg2) 40%,var(--bg3));overflow-y:auto;overflow-x:hidden}
       /* Starfield */
-      .sky::before,.sky::after{content:"";position:absolute;inset:-10%;background-repeat:repeat;background-size:200px 200px;opacity:.55}
-      .sky::before{background-image:radial-gradient(2px 2px at 20px 30px,#fff8 40%,#0000 42%),radial-gradient(1.5px 1.5px at 120px 160px,#fff6 40%,#0000 42%),radial-gradient(1.25px 1.25px at 180px 60px,#fff5 40%,#0000 42%);animation:twinkle 7s linear infinite}
-      .sky::after {background-image:radial-gradient(2px 2px at 80px 100px,#fff7 40%,#0000 42%),radial-gradient(1px 1px at 160px 40px,#fff5 40%,#0000 42%),radial-gradient(1.5px 1.5px at 30px 170px,#fff6 40%,#0000 42%);animation:twinkle 9s linear infinite reverse}
-      @keyframes twinkle{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:.8;transform:translateY(-2px)}}
+  .sky{position:fixed;inset:0;pointer-events:none;}
+  .sky::before,.sky::after{content:"";position:absolute;inset:-10%;background-repeat:repeat;background-size:220px 220px;opacity:.55;animation:drift 60s linear infinite}
+  .sky::before{background-image:radial-gradient(2px 2px at 20px 30px,#fff8 40%,#0000 42%),radial-gradient(1.5px 1.5px at 120px 160px,#fff6 40%,#0000 42%),radial-gradient(1.25px 1.25px at 180px 60px,#fff5 40%,#0000 42%),radial-gradient(2px 2px at 260px 200px,#fffa 40%,#0000 42%);animation:twinkle 7s linear infinite, drift 75s linear infinite}
+  .sky::after {background-image:radial-gradient(2px 2px at 80px 100px,#fff7 40%,#0000 42%),radial-gradient(1px 1px at 160px 40px,#fff5 40%,#0000 42%),radial-gradient(1.5px 1.5px at 30px 170px,#fff6 40%,#0000 42%),radial-gradient(1.75px 1.75px at 210px 140px,#fff9 40%,#0000 42%);animation:twinkle 9s linear infinite reverse, drift 90s linear infinite reverse}
+  @keyframes twinkle{0%,100%{opacity:.35;filter:blur(0)}50%{opacity:.85;filter:blur(.5px)}}
+  @keyframes drift{0%{transform:translate3d(0,0,0)}50%{transform:translate3d(-25px,15px,0)}100%{transform:translate3d(0,0,0)}}
       /* Aurora haze */
       .glow{position:absolute;inset:0;filter:blur(40px);opacity:.35;pointer-events:none;background:radial-gradient(600px 300px at 70% 20%, color(display-p3 0.5 0.8 1 /.6), #0000 70%), radial-gradient(500px 280px at 20% 80%, color(display-p3 0.7 0.5 1 /.5), #0000 70%)}
-      main{position:relative;display:grid;place-items:center;height:100%;}
+  main{position:relative;display:grid;place-items:center;min-height:100vh;padding-bottom:140px}
       .card{position:relative;display:grid;gap:18px;place-items:center;width:min(92%,980px);padding:28px 20px 28px;background:linear-gradient(180deg, #0b122bcc, #0b122b99);border:1px solid #1f2a53;border-radius:16px;box-shadow:0 10px 35px #000a, inset 0 1px #ffffff0d}
       h1{margin:0;font-weight:800;letter-spacing:.5px;font-size:clamp(1.6rem,3vw,2.4rem);text-align:center;background:linear-gradient(90deg,#e5e7eb,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent}
       p.tag{margin:-6px 0 2px;color:#a5b4fc;font-weight:600;letter-spacing:.35px}
@@ -33,7 +35,7 @@
       .primary{color:#0b122b;background:linear-gradient(90deg,#7dd3fc,#a78bfa);box-shadow:0 6px 18px #0008}
       .ghost{color:#c7d2fe;background:#172042;border:1px solid #273467}
       .btn:focus-visible{outline:3px solid #7dd3fc55;outline-offset:2px}
-      footer{position:fixed;inset:auto 0 10px;display:flex;justify-content:center;font-size:.85rem;color:#94a3b8}
+  footer{position:relative;margin-top:-90px;display:flex;justify-content:center;font-size:.85rem;color:#94a3b8;padding:40px 0}
       footer a{color:#a5b4fc}
     </style>
   </head>
@@ -53,10 +55,45 @@
           <a class="btn ghost" href="privacy.html">Privacy Policy</a>
         </div>
       </div>
+      <section class="card" data-parallax="0.15" style="margin-top:60px;gap:12px" aria-label="Features">
+        <h2 style="margin:0;font-size:1.3rem;font-weight:700;letter-spacing:.5px">Why Fret Wizard?</h2>
+        <ul style="margin:0 0 4px 0;padding-left:1.1rem;max-width:760px;color:#cbd5e1;font-size:.95rem;display:grid;gap:6px">
+          <li>Instant note + interval feedback while you tap.</li>
+          <li>Metronome + timing trainer crafted for reliable pulse.</li>
+          <li>Modes, scales, arpeggios & chord tones — all highlighted.</li>
+          <li>Offline first: practice anywhere with zero sign‑in.</li>
+          <li>No ads, no tracking scripts.</li>
+          <li>Space Wizard visuals: relaxing starfield for long sessions.</li>
+        </ul>
+        <p style="margin:4px 0 0;color:#94a3b8;font-size:.8rem">More tools coming soon (progression builder, custom grooves, advanced practice presets).</p>
+      </section>
+      <section class="card" data-parallax="0.3" style="margin-top:60px;gap:14px" aria-label="Stay tuned">
+        <h2 style="margin:0;font-size:1.25rem;font-weight:700;letter-spacing:.5px">Coming Soon</h2>
+        <p style="margin:0;max-width:740px;color:#cbd5e1">Google Play release is underway. A Pro option will unlock deeper practice presets and extra visuals — still no accounts and still offline.</p>
+        <p style="margin:0;color:#7dd3fc;font-size:.8rem">Follow the repo or refresh this page for the launch link.</p>
+      </section>
     </main>
     <footer>
       <span>© 2025 Fret Wizard</span>
       &nbsp;•&nbsp;<a href="privacy.html">Privacy</a>
     </footer>
+  <script>
+  // Simple parallax based on scroll position
+  (function(){
+    const layers = document.querySelectorAll('[data-parallax]');
+    const splash = document.querySelector('.splash');
+    function onScroll(){
+      const y = window.scrollY;
+      layers.forEach(el=>{
+        const speed = parseFloat(el.getAttribute('data-parallax')||'0.15');
+        el.style.transform = `translateY(${y*speed}px)`;
+      });
+      if(splash){
+        splash.style.transform = `translateY(${Math.sin(Date.now()/3000)*8}px) translateZ(0)`;
+      }
+    }
+    window.addEventListener('scroll', onScroll, {passive:true});
+  })();
+  </script>
   </body>
 </html>
