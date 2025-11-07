@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fret Wizard — Guitar Trainer</title>
+    <meta name="description" content="Guitar fretboard trainer with metronome and jam tools. No ads." />
+    <meta name="robots" content="index,follow" />
+    <style>
+      :root{
+        --bg1:#07091a; --bg2:#0a1030; --bg3:#111946; --glow:#7dd3fc; --glow2:#a78bfa; --card:#0b122b;
+      }
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:#e5e7eb;background:radial-gradient(1200px 800px at 20% 10%,#15205100 0,#15205155 60%,#15205100 100%), linear-gradient(180deg,var(--bg1),var(--bg2) 40%,var(--bg3));overflow:hidden}
+      /* Starfield */
+      .sky::before,.sky::after{content:"";position:absolute;inset:-10%;background-repeat:repeat;background-size:200px 200px;opacity:.55}
+      .sky::before{background-image:radial-gradient(2px 2px at 20px 30px,#fff8 40%,#0000 42%),radial-gradient(1.5px 1.5px at 120px 160px,#fff6 40%,#0000 42%),radial-gradient(1.25px 1.25px at 180px 60px,#fff5 40%,#0000 42%);animation:twinkle 7s linear infinite}
+      .sky::after {background-image:radial-gradient(2px 2px at 80px 100px,#fff7 40%,#0000 42%),radial-gradient(1px 1px at 160px 40px,#fff5 40%,#0000 42%),radial-gradient(1.5px 1.5px at 30px 170px,#fff6 40%,#0000 42%);animation:twinkle 9s linear infinite reverse}
+      @keyframes twinkle{0%,100%{opacity:.35;transform:translateY(0)}50%{opacity:.8;transform:translateY(-2px)}}
+      /* Aurora haze */
+      .glow{position:absolute;inset:0;filter:blur(40px);opacity:.35;pointer-events:none;background:radial-gradient(600px 300px at 70% 20%, color(display-p3 0.5 0.8 1 /.6), #0000 70%), radial-gradient(500px 280px at 20% 80%, color(display-p3 0.7 0.5 1 /.5), #0000 70%)}
+      main{position:relative;display:grid;place-items:center;height:100%;}
+      .card{position:relative;display:grid;gap:18px;place-items:center;width:min(92%,980px);padding:28px 20px 28px;background:linear-gradient(180deg, #0b122bcc, #0b122b99);border:1px solid #1f2a53;border-radius:16px;box-shadow:0 10px 35px #000a, inset 0 1px #ffffff0d}
+      h1{margin:0;font-weight:800;letter-spacing:.5px;font-size:clamp(1.6rem,3vw,2.4rem);text-align:center;background:linear-gradient(90deg,#e5e7eb,#c7d2fe);-webkit-background-clip:text;background-clip:text;color:transparent}
+      p.tag{margin:-6px 0 2px;color:#a5b4fc;font-weight:600;letter-spacing:.35px}
+      p.sub{margin:0;color:#cbd5e1;max-width:760px;text-align:center}
+      .hero{position:relative;display:grid;place-items:center}
+      .splash{width:min(560px,88vw);height:auto;filter:drop-shadow(0 20px 40px #0007);animation:floaty 11s ease-in-out infinite}
+      @keyframes floaty{0%,100%{transform:translateY(0) rotate(-.2deg)}50%{transform:translateY(-8px) rotate(.2deg)}}
+      .buttons{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:6px}
+      .btn{appearance:none;border:none;cursor:pointer;padding:12px 16px;border-radius:10px;font-weight:700;letter-spacing:.3px}
+      .primary{color:#0b122b;background:linear-gradient(90deg,#7dd3fc,#a78bfa);box-shadow:0 6px 18px #0008}
+      .ghost{color:#c7d2fe;background:#172042;border:1px solid #273467}
+      .btn:focus-visible{outline:3px solid #7dd3fc55;outline-offset:2px}
+      footer{position:fixed;inset:auto 0 10px;display:flex;justify-content:center;font-size:.85rem;color:#94a3b8}
+      footer a{color:#a5b4fc}
+    </style>
+  </head>
+  <body>
+    <div class="sky" aria-hidden="true"></div>
+    <div class="glow" aria-hidden="true"></div>
+    <main>
+      <div class="card" role="region" aria-label="Fret Wizard intro">
+        <p class="tag">Guitar Trainer • Offline • No Ads</p>
+        <h1>Fret Wizard</h1>
+        <div class="hero" aria-hidden="true">
+          <img class="splash" src="assets/fretwizard_splash.png" alt="Fret Wizard starfield splash" />
+        </div>
+        <p class="sub">Learn the fretboard faster and practice smarter. Interactive neck with instant sound, scale and chord highlights, metronome, and rhythm tools — all offline.</p>
+        <div class="buttons">
+          <a class="btn primary" href="#" aria-label="Get the app on Google Play">Get the App (soon)</a>
+          <a class="btn ghost" href="privacy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <span>© 2025 Fret Wizard</span>
+      &nbsp;•&nbsp;<a href="privacy.html">Privacy</a>
+    </footer>
+  </body>
+</html>
